@@ -9,10 +9,10 @@
 
 
 
-## Tài Liệu ##
-# NLTK
+# Tài Liệu
+## NLTK
 - https://www.nltk.org/api/nltk.tokenize.html
-# Keras model
+## Keras model
 - https://keras.io/guides/sequential_model/
 - https://www.phamduytung.com/blog/2019-05-05-deep-learning-dropout/
 - https://keras.io/api/layers/regularization_layers/dropout/

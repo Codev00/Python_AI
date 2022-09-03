@@ -38,6 +38,9 @@
 # nlp = spacy.load("en_core_web_sm")
 # print(nlp.vocab.vectors_length)
 
-import pandas as pd
-df = pd.read_csv("./converse.csv")
-print(df.head(180))
+# import pandas as pd
+# df = pd.read_csv("./converse.csv")
+# print(df.head(180))
+import numpy as np 
+bag = np.zeros((2,2), dtype='int')
+print(bag)
