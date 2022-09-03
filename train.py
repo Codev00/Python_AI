@@ -48,7 +48,7 @@ training = []
 # Tạo mảng trống cho đầu ra
 output_empty = [0] * len(classes)
 
-# Huấn luyện, túi chứa từ cho mỗi câu
+# Huấn luyện, bag.array chứa từ cho mỗi câu
 for doc in documents:
     bag = []
     # Danh sách các từ được mã hoá (documents chứa các từ vựng trong phần pattern)
@@ -73,3 +73,21 @@ train_x = list(training[:, 0]) # Lấy giá trị cột thứ 0 (I) ở tất c�
 # print(train_x)
 train_y = list(training[:, 1]) # Lấy giá trị cột thứ 1 (II) ở tất cả các hàng
 # print(train_y)
+
+# Mô hình train
+# Tạo neurons
+model = Sequential()
+model.add(Dense(100, input_shape=(len(train_x[0]),), activation="relu"))
+model.add(Dropout(0.5)) # Dropout tránh over-fitting
+model.add(Dense(50, activation="relu"))
+model.add(Dropout(0.5))
+model.add(Dense(len(train_y[0]), activation="softmax")) # softmax hàm tính trọng số cho dữ liệu
+
+# Dịch mô hình
+sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True) # decay để điều chỉnh tốc độ học tập(giảm tỷ lệ) tăng dộ chính xác cho dữ liệu
+model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
+
+# fit và lưu model
+tots = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+model.save('train_model.h5', tots)
+print("Hoàn thành training model !!")

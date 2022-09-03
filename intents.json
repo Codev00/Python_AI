@@ -1,4 +1,9 @@
 {"intents": [
+    {"tag": "botname",
+     "patterns": ["Tên", "Bạn tên là gì?", "Tên bạn là?", "Giới thiệu tên đi chứ"],
+     "responses": ["Mình là Noah", "Tên mình là Noah", "Bạn có thể gọi mình là Noah thông thái", "Noah"],
+     "context": [""]
+    },
     {"tag": "greeting",
      "patterns": ["Hi", "Hey", "Có đó không?","Alo","Hola", "Hello", "Chào!"],
      "responses": ["HI", "Hello", "Chào!", "Rất vui được gặp lại", "Lại gặp nhau rồi", "Lâu rồi không gặp"],
