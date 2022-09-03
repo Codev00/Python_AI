@@ -1,0 +1,33 @@
+{"intents": [
+    {"tag": "greeting",
+     "patterns": ["Hi", "Hey", "Có đó không?","Alo","Hola", "Hello", "Chào!"],
+     "responses": ["HI", "Hello", "Chào!", "Rất vui được gặp lại", "Lại gặp nhau rồi", "Lâu rồi không gặp"],
+     "context": [""]
+    },
+    {"tag": "goodbye",
+     "patterns": ["Bye", "Tạm biệt", "Goodbye", "hẹn gặp lại"],
+     "responses": ["Rất mong được gặp lại sớm", "Gặp lại sau", "Bye!", "Chào tạm biệt"],
+     "context": [""]
+    },
+    {"tag": "thanks",
+     "patterns": ["Cảm ơn", "Cảm ơn", "Thật tốt quá", "Tuyệt vời, cảm ơn", "Cảm ơn vì đã giúp tôi"],
+     "responses": ["Rất vui được giúp đỡ!", "Bất cứ lúc nào!", "Rất vui của tôi"],
+     "context": [""]
+    },
+    {"tag": "noanswer",
+     "patterns": [],
+     "responses": ["Xin lỗi, tôi không thể hiểu được bạn", "Vui lòng cho tôi biết thêm thông tin", "Tôi không chắc tôi hiểu"],
+     "context": [""]
+    },
+    {"tag": "options",
+     "patterns": ["Làm thế nào bạn có thể giúp tôi?", "Bạn có thể làm gì?", "Bạn hỗ trợ gì?", "Bạn có thể hữu ích như thế nào?", "Hỗ trợ nào được cung cấp"],
+     "responses": ["Tôi có thể hướng dẫn bạn thông qua Danh sách phản ứng có hại của thuốc, Theo dõi huyết áp, Bệnh viện và Hiệu thuốc", "Cung cấp hỗ trợ cho Phản ứng có hại của thuốc, Huyết áp, Bệnh viện và Hiệu thuốc"],
+     "context": [""]
+    },
+    {"tag": "adverse_drug",
+     "patterns": ["Làm thế nào để kiểm tra phản ứng có hại của thuốc?", "Mở mô-đun thuốc có hại", "Cho tôi danh sách các loại thuốc gây ra hành vi bất lợi", "Liệt kê tất cả các loại thuốc thích hợp cho bệnh nhân có phản ứng có hại", "Thuốc nào không có phản ứng bất lợi?" ],
+     "responses": ["Điều hướng đến mô-đun phản ứng có hại của thuốc"],
+     "context": [""]
+    }
+]
+}
