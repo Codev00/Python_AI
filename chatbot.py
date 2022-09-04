@@ -1,7 +1,3 @@
-from audioop import reverse
-from gettext import npgettext
-from operator import imod
-from unittest import result
 import nltk
 import pickle
 import numpy as np 
@@ -44,7 +40,7 @@ def predict_classes(sentence, model):
         result_list.append({"intent": classes[r[0]], "probability": str(r[1])})
     return result_list
 
-# Phản hồi ngẫu nhiên từ chủ đề 
+# Phản hồi ngẫu nhiên từ class xác định
 def getRespond (ints, intent_json):
     tag = ints[0]['intent']
     list_intents = intent_json['intents']
@@ -61,5 +57,9 @@ def bot_respond(text_input):
 # ChatBot
 while True:
     user = input("User: ")
-    res = bot_respond(user)
-    print("BOT: {}".format(res))
+    if user != "exit":
+        res = bot_respond(user)
+        print("BOT: {}".format(res))
+    else:
+        print("Hẹn gặp lại!")
+        break
