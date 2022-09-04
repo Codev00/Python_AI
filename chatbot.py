@@ -1,5 +1,7 @@
+from audioop import reverse
 from gettext import npgettext
 from operator import imod
+from unittest import result
 import nltk
 import pickle
 import numpy as np 
@@ -9,7 +11,7 @@ model = load_model('train_model.h5')
 import json
 import random
 
-intents = json.loads(open('./intents.json'), encoding='utf8').read()
+intents = json.loads(open('./intents.json', encoding = "utf8").read())
 words= pickle.load(open('./words.pkl', 'rb'))
 classes = pickle.load(open('./classes.pkl', 'rb'))
 
@@ -29,3 +31,35 @@ def bag_element(sentence, words):
             if w == s:
                 bag[i] = 1
     return (np.array(bag))
+# Dự đoán lớp
+def predict_classes(sentence, model):
+    p = bag_element(sentence, words)
+    respond = model.predict(np.array([p]))[0]
+    ERROR_THRESHOLD = 0.25
+    results = [[i,r] for i,r in enumerate(respond) if r>ERROR_THRESHOLD]
+    # print(result)
+    results.sort(key=lambda x: x[1], reverse=True)
+    result_list = []
+    for r in results:
+        result_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+    return result_list
+
+# Phản hồi ngẫu nhiên từ chủ đề 
+def getRespond (ints, intent_json):
+    tag = ints[0]['intent']
+    list_intents = intent_json['intents']
+    for i in list_intents:
+        if i['tag'] == tag:
+            result = random.choice(i['responses'])
+            break
+    return result
+def bot_respond(text_input):
+    ints = predict_classes(text_input, model)
+    respond = getRespond(ints, intents)
+    return respond
+
+# ChatBot
+while True:
+    user = input("User: ")
+    res = bot_respond(user)
+    print("BOT: {}".format(res))

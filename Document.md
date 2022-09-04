@@ -5,6 +5,11 @@
 - Tạo tập training để huấn luyện bot
 - Xây dựng mô hình train bot
 - Lưu mô hình
+- Tiền xử lý ý định từ user
+- Viết hàm tìm từ có trong words
+- Dự đoán lớp thuộc về
+- Phản hồi từ bot
+
 
 
 
@@ -12,6 +17,8 @@
 # Tài Liệu
 ## NLTK
 - https://www.nltk.org/api/nltk.tokenize.html
+## Pickle
+- https://tek4.vn/khoa-hoc/lap-trinh-python-can-ban/su-dung-pickle-de-ghi-file-nhi-phan
 ## Keras model
 - https://keras.io/guides/sequential_model/
 - https://www.phamduytung.com/blog/2019-05-05-deep-learning-dropout/

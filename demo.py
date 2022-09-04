@@ -42,5 +42,10 @@
 # df = pd.read_csv("./converse.csv")
 # print(df.head(180))
 import numpy as np 
-bag = np.zeros((2,2), dtype='int')
-print(bag)
+# bag = np.ones((2,2), dtype='int')
+# # print(bag)
+# bag1 = [[i,r] for i,r in enumerate(bag)]
+# print(bag1)
+mylist = [(3, 5, 8), (6, 2, 8), (2, 9, 4), (6, 8, 5)]
+mylist.sort(key=lambda x: x[0])
+print(mylist)
