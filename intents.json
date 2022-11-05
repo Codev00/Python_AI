@@ -1,46 +1,124 @@
-{"intents": [
-    {"tag": "botname",
-     "patterns": ["Tên", "Bạn tên là gì?", "Tên bạn là?", "Giới thiệu tên đi chứ"],
-     "responses": ["Mình là Noah", "Tên mình là Noah", "Bạn có thể gọi mình là Noah thông thái", "Noah"],
-     "context": [""]
+{
+  "intents": [
+    {
+      "tag": "botname",
+      "patterns": [
+        "Tên",
+        "Bạn tên là gì?",
+        "Tên bạn là?",
+        "Giới thiệu tên đi chứ",
+        "name"
+      ],
+      "responses": [
+        "Mình là Noah",
+        "Tên mình là Noah",
+        "Bạn có thể gọi mình là Noah sơ sinh",
+        "Noah"
+      ]
     },
-    {"tag": "greeting",
-     "patterns": ["Hi", "Hey", "Có đó không?","Alo","Hola", "Hello", "Chào!"],
-     "responses": ["Hi", "Hello", "Chào!", "Rất vui được gặp lại", "Lại gặp nhau rồi", "Lâu rồi không gặp"],
-     "context": [""]
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "Hey",
+        "Có đó không?",
+        "Alo",
+        "Hola",
+        "Hello",
+        "Chào!"
+      ],
+      "responses": [
+        "Hi",
+        "Hello",
+        "Chào!",
+        "Rất vui được gặp lại",
+        "Lại gặp nhau rồi",
+        "Lâu rồi không gặp"
+      ]
     },
-    {"tag": "goodbye",
-     "patterns": ["Bye", "Tạm biệt", "Goodbye", "hẹn gặp lại"],
-     "responses": ["Rất mong được gặp lại sớm", "Gặp lại sau", "Bye!", "Chào tạm biệt"],
-     "context": [""]
+    {
+      "tag": "goodbye",
+      "patterns": ["Bye", "Tạm biệt", "Goodbye", "hẹn gặp lại"],
+      "responses": [
+        "Rất mong được gặp lại sớm",
+        "Gặp lại sau",
+        "Bye!",
+        "Chào tạm biệt"
+      ]
     },
-    {"tag": "thanks",
-     "patterns": ["Cảm ơn", "Cảm ơn", "Thật tốt quá", "Tuyệt vời, cảm ơn", "Cảm ơn vì đã giúp tôi"],
-     "responses": ["Rất vui được giúp đỡ!", "không có gì", "Tôi rất vui"],
-     "context": [""]
+    {
+      "tag": "thanks",
+      "patterns": [
+        "Cảm ơn",
+        "Cảm ơn",
+        "Thật tốt quá",
+        "Tuyệt vời, cảm ơn",
+        "Cảm ơn vì đã giúp tôi"
+      ],
+      "responses": ["Rất vui được giúp đỡ!", "không có gì", "Tôi rất vui"]
     },
-    {"tag": "noanswer",
-     "patterns": [],
-     "responses": ["Xin lỗi, tôi không thể hiểu được bạn", "Vui lòng cho tôi biết thêm thông tin", "Tôi không chắc tôi hiểu"],
-     "context": [""]
+    {
+      "tag": "noanswer",
+      "patterns": [],
+      "responses": [
+        "Xin lỗi, tôi không thể hiểu được bạn",
+        "Vui lòng cho tôi biết thêm thông tin",
+        "Tôi không chắc tôi hiểu"
+      ]
     },
-    {"tag": "options",
-     "patterns": ["Làm thế nào bạn có thể giúp tôi?", "Bạn có thể làm gì?", "Bạn hỗ trợ gì?", "Bạn có thể hữu ích như thế nào?", "Hỗ trợ nào được cung cấp"],
-     "responses": ["Tôi có thể hướng dẫn bạn thông qua Danh sách phản ứng có hại của thuốc, Theo dõi huyết áp, Bệnh viện và Hiệu thuốc", "Cung cấp hỗ trợ cho Phản ứng có hại của thuốc, Huyết áp, Bệnh viện và Hiệu thuốc"],
-     "context": [""]
+    {
+      "tag": "options",
+      "patterns": [
+        "Làm thế nào bạn có thể giúp tôi?",
+        "Bạn có thể làm gì?",
+        "Bạn hỗ trợ gì?",
+        "Bạn có thể hữu ích như thế nào?",
+        "Hỗ trợ nào được cung cấp"
+      ],
+      "responses": [
+        "Tôi có thể hướng dẫn bạn thông qua Danh sách phản ứng có hại của thuốc, Theo dõi huyết áp, Bệnh viện và Hiệu thuốc",
+        "Cung cấp hỗ trợ cho Phản ứng có hại của thuốc, Huyết áp, Bệnh viện và Hiệu thuốc"
+      ]
     },
-    {"tag": "adverse_drug",
-     "patterns": ["Làm thế nào để kiểm tra phản ứng có hại của thuốc?", "Mở mô-đun thuốc có hại", "Cho tôi danh sách các loại thuốc gây ra hành vi bất lợi", "Liệt kê tất cả các loại thuốc thích hợp cho bệnh nhân có phản ứng có hại", "Thuốc nào không có phản ứng bất lợi?" ],
-     "responses": ["Điều hướng đến mô-đun phản ứng có hại của thuốc"],
-     "context": [""]
+    {
+      "tag": " food ",
+      "patterns": [
+        " Tôi muốn gọi món ",
+        " Có những loại thức ăn nào? ",
+        "Hôm nay có món gì nào?",
+        "Cùng ăn thôi",
+        " Món ăn ngon của bạn là gì? "
+      ],
+      "responses": [
+        " Hôm nay có pizza, mì ống rau củ, thịt bò. Đây là món đặc biệt của nhà hàng chúng tôi ",
+        " Tôi có thể giúp gì cho bạn không? Đây là thực đơn. Vui lòng hỏi tôi nếu bạn có bất kỳ câu hỏi nào. "
+      ]
     },
-    {"tag" : " menu " ,
-     "patterns" : [ " Tôi muốn gọi món " , " Có những loại thức ăn nào? " , " Món ăn ngon của bạn là gì? " ],
-     "responses" : [ " Bạn đã sẵn sàng gọi món chưa? Nhà hàng của chúng tôi có pizza, mì ống rau củ, thịt bò. Đây là món đặc biệt của nhà hàng chúng tôi " , " Tôi có thể giúp gì cho bạn không? Đây là thực đơn. Vui lòng hỏi tôi nếu bạn có bất kỳ câu hỏi nào. " ]
+    {
+      "tag": " thanh_toan ",
+      "patterns": [
+        " Bạn có dùng thẻ tín dụng không? ",
+        " Bạn có chấp nhận thẻ Mastercard không? ",
+        " Bạn chỉ dùng tiền mặt? "
+      ],
+      "responses": [
+        " Chúng tôi chấp nhận VISA, Mastercard và ATM ",
+        " Chúng tôi chấp nhận hầu hết các thẻ tín dụng chính "
+      ]
     },
-    {"tag" : " thanh toán " ,
-     "patterns" : [ " Bạn có dùng thẻ tín dụng không? " , " Bạn có chấp nhận thẻ Mastercard không? " , " Bạn chỉ dùng tiền mặt? " ],
-     "responses" : [ " Chúng tôi chấp nhận VISA, Mastercard và AMEX " , " Chúng tôi chấp nhận hầu hết các thẻ tín dụng chính " ]
+    {
+      "tag": " giai_tri ",
+      "patterns": [
+        "Bạn có thể làm gì?",
+        "Có gì vui không?",
+        "Chơi trò gì đi",
+        "Hôm nay có gì nào?"
+      ],
+      "responses": [
+        "Tôi có thể hát cho bạn nghe",
+        "Chơi trò cờ tướng thì thấy thế nào?",
+        "Chúng ta có thể cùng nhau xem một vài bộ film chẳng hạn"
+      ]
     }
-]
+  ]
 }

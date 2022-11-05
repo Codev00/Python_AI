@@ -38,7 +38,7 @@ words = sorted(list(set(words)))
 # Sắp xếp lớp
 classes = sorted(list(set(classes)))
 
-# Tạo tệp để chuyển văn bản chữ => số
+# Tạo tệp để lưu văn bản chữ => số
 pickle.dump(words,open("words.pkl", "wb"))
 pickle.dump(classes,open("classes.pkl", "wb"))
 
@@ -64,22 +64,23 @@ for doc in documents:
     # Tạo tập training với bag chứa các mẫu từ đã chuyển số đựng trong bag và đầu ra là câu trả lời tương ứng
     training.append([bag, output_row])
 
-# Trộn các training và biến thành mảng (np.array)
+
+# Trộn các training và chuyển thành mảng (np.array)
 random.shuffle(training)
 training = np.array(training)
 # print(training)
 # Tạo danh sách kiểm tra x-mẫu, y-ý định
-train_x = list(training[:, 0]) # Lấy giá trị cột thứ 0 (I) ở tất cả các hàng
+train_x = list(training[:, 0])
 # print(train_x)
-train_y = list(training[:, 1]) # Lấy giá trị cột thứ 1 (II) ở tất cả các hàng
+train_y = list(training[:, 1])
 # print(train_y)
 
 # Mô hình train
 # Tạo neurons
 model = Sequential()
-model.add(Dense(100, input_shape=(len(train_x[0]),), activation="relu"))
+model.add(Dense(128, input_shape=(len(train_x[0]),), activation="relu"))
 model.add(Dropout(0.5)) # Dropout tránh over-fitting
-model.add(Dense(50, activation="relu"))
+model.add(Dense(64, activation="relu"))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation="softmax")) # softmax hàm tính trọng số cho dữ liệu
 
@@ -88,6 +89,6 @@ sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True) # decay để điề
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # fit và lưu model
-tots = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
+tots = model.fit(np.array(train_x), np.array(train_y), epochs=1000, batch_size=20, verbose=1)
 model.save('train_model.h5', tots)
 print("Hoàn thành training model !!")
