@@ -84,11 +84,11 @@ model.add(Dense(64, activation="relu"))
 model.add(Dropout(0.5))
 model.add(Dense(len(train_y[0]), activation="softmax")) # softmax hàm tính trọng số cho dữ liệu
 
-# Dịch mô hình
+# Biên dịch mô hình
 sgd = SGD(lr=0.01, decay=1e-6, momentum=0.9, nesterov=True) # decay để điều chỉnh tốc độ học tập(giảm tỷ lệ) tăng dộ chính xác cho dữ liệu
 model.compile(loss='categorical_crossentropy', optimizer=sgd, metrics=['accuracy'])
 
 # fit và lưu model
-tots = model.fit(np.array(train_x), np.array(train_y), epochs=1000, batch_size=20, verbose=1)
+tots = model.fit(np.array(train_x), np.array(train_y), epochs=1000000, batch_size=20, verbose=1)
 model.save('train_model.h5', tots)
 print("Hoàn thành training model !!")

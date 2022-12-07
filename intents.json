@@ -119,6 +119,15 @@
         "Chơi trò cờ tướng thì thấy thế nào?",
         "Chúng ta có thể cùng nhau xem một vài bộ film chẳng hạn"
       ]
+    },
+    {
+      "tag": "help",
+      "patterns": ["Help", "Tôi cần giúp đỡ!", "Tôi cần tư vấn !"],
+      "responses": [
+        "Tôi có thể giúp gì cho bạn?",
+        "bạn cần gì?",
+        "Có việc gì à?"
+      ]
     }
   ]
 }

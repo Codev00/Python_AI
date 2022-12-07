@@ -3,10 +3,10 @@ import pickle
 import numpy as np 
 
 from keras.models import load_model
-model = load_model('train_model.h5')
+
 import json
 import random
-
+model = load_model('train_model.h5')
 intents = json.loads(open('./intents.json', encoding = "utf8").read())
 words= pickle.load(open('./words.pkl', 'rb'))
 classes = pickle.load(open('./classes.pkl', 'rb'))
@@ -66,15 +66,13 @@ def send():
             ChatLog.config(state=NORMAL)
             ChatLog.insert(END, "You: " + msg + '\n\n')
             ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
-
             res = bot_respond(msg)
             ChatLog.insert(END, "Bot: " + res + '\n\n')
-
             ChatLog.config(state=DISABLED)
             ChatLog.yview(END)
 
 base = Tk()
-base.title("Noah")
+base.title("NOAH")
 base.geometry("400x500")
 base.resizable(width=FALSE, height=FALSE)
 
