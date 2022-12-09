@@ -71,34 +71,35 @@ def send():
             ChatLog.config(state=DISABLED)
             ChatLog.yview(END)
 
-base = Tk()
-base.title("NOAH")
-base.geometry("400x500")
-base.resizable(width=FALSE, height=FALSE)
+def send_enter(event):
+    msg = EntryBox.get("1.0",'end-1c').strip()
+    EntryBox.delete("0.0",END)
+    if msg != '':
+            ChatLog.config(state=NORMAL)
+            ChatLog.insert(END, "You: " + msg + '\n\n')
+            ChatLog.config(foreground="#442265", font=("Verdana", 12 ))
+            res = bot_respond(msg)
+            ChatLog.insert(END, "Bot: " + res + '\n\n')
+            ChatLog.config(state=DISABLED)
+            ChatLog.yview(END)
 
-#Create Chat window
-ChatLog = Text(base, bd=0, bg="white", height="8", width="50", font="Arial",)
+noah = Tk()
+noah.title("NOAH")
+noah.geometry("400x500")
+noah.resizable(width=FALSE, height=FALSE)
 
+ChatLog = Text(noah, bd=0, bg="white", height="8", width="50", font="Arial",)
 ChatLog.config(state=DISABLED)
-
-#Bind scrollbar to Chat window
-scrollbar = Scrollbar(base, command=ChatLog.yview, cursor="heart")
+scrollbar = Scrollbar(noah, command=ChatLog.yview, cursor="heart")
 ChatLog['yscrollcommand'] = scrollbar.set
-
-#Create Button to send message
-SendButton = Button(base, font=("Verdana",12,'bold'), text="Send", width="8", height=5,
+SendButton = Button(noah, font=("Verdana",12,'bold'), text="Send", width="8", height=5,
                     bd=0, bg="#32de97", activebackground="#3c9d9b",fg='#ffffff',
                     command= send )
-
-#Create the box to enter message
-EntryBox = Text(base, bd=0, bg="white",width="29", height="5", font="Arial")
-#EntryBox.bind("", send)
-
-
-#Place all components on the screen
+EntryBox = Text(noah, bd=0, bg="white",width="29", height="5", font="Arial")
+noah.bind('<Return>', send_enter)
 scrollbar.place(x=376,y=6, height=386)
 ChatLog.place(x=6,y=6, height=406, width=370)
 EntryBox.place(x=6, y=431, height=50, width=290)
 SendButton.place(x=291, y=431, height=50)
 
-base.mainloop()
+noah.mainloop()
