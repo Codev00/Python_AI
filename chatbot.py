@@ -33,11 +33,12 @@ def predict_classes(sentence, model):
     respond = model.predict(np.array([p]))[0]
     ERROR_THRESHOLD = 0.25
     results = [[i,r] for i,r in enumerate(respond) if r>ERROR_THRESHOLD]
-    # print(result)
     results.sort(key=lambda x: x[1], reverse=True)
+    print(results)
     result_list = []
     for r in results:
         result_list.append({"intent": classes[r[0]], "probability": str(r[1])})
+    print(result_list)
     return result_list
 
 # Phản hồi ngẫu nhiên từ class xác định
@@ -48,6 +49,7 @@ def getRespond (ints, intent_json):
         if i['tag'] == tag:
             result = random.choice(i['responses'])
             break
+    print(result)
     return result
 def bot_respond(text_input):
     ints = predict_classes(text_input, model)
